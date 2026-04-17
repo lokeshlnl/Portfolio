@@ -471,6 +471,24 @@
     .hamburger { display: flex; }
     .timeline-header { flex-direction: column; }
   }
+ .jump-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #7F77DD, #D4537E);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.jump-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(127, 119, 221, 0.4);
+}
   @media (max-width: 480px) {
     .cert-grid { grid-template-columns: 1fr; }
   }
@@ -867,6 +885,9 @@ staff data, activity tracking, expense tracking, and moderated internal communit
       <!-- <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">↗ Twitter</a> -->
       <a href="resume.pdf" class="social-link" target="_blank">↗ Resume</a>
     </div>
+   <a href="unprofessional_portfolio_fun_side.html" class="jump-btn">
+  Jump to Other Side ✦
+</a>
   </div>
 </section>
 
