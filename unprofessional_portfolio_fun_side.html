@@ -1,0 +1,780 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .fun-portfolio {
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    background: #0d0d14;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    background: radial-gradient(ellipse at 20% 50%, #1a0533 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, #001a33 0%, transparent 60%),
+                #0d0d14;
+  }
+
+  .floating-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    animation: floatBlob 8s ease-in-out infinite;
+  }
+
+  .blob1 { width: 300px; height: 300px; background: #7F77DD; top: 10%; left: 5%; animation-delay: 0s; }
+  .blob2 { width: 200px; height: 200px; background: #EF9F27; top: 60%; right: 10%; animation-delay: -3s; }
+  .blob3 { width: 250px; height: 250px; background: #1D9E75; bottom: 10%; left: 30%; animation-delay: -5s; }
+  .blob4 { width: 150px; height: 150px; background: #D4537E; top: 30%; right: 20%; animation-delay: -2s; }
+
+  @keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(20px, -30px) scale(1.05); }
+    66% { transform: translate(-15px, 20px) scale(0.95); }
+  }
+
+  .hero-tag {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #EF9F27;
+    background: rgba(239,159,39,0.12);
+    border: 1px solid rgba(239,159,39,0.3);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title .line1 { display: block; color: #fff; }
+  .hero-title .line2 { display: block; 
+    background: linear-gradient(135deg, #7F77DD, #D4537E, #EF9F27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #7F77DD, #D4537E);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 24px rgba(127,119,221,0.4); }
+
+  .btn-secondary {
+    padding: 14px 28px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+
+  .scroll-hint .arrow { width: 20px; height: 20px; border-right: 1.5px solid rgba(255,255,255,0.35); border-bottom: 1.5px solid rgba(255,255,255,0.35); transform: rotate(45deg); }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1D9E75;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 3rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .activity-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .activity-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .activity-card:hover { transform: translateY(-4px) scale(1.01); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+
+  .activity-card.purple::before { background: radial-gradient(circle at top left, rgba(127,119,221,0.15), transparent 60%); }
+  .activity-card.amber::before { background: radial-gradient(circle at top left, rgba(239,159,39,0.15), transparent 60%); }
+  .activity-card.teal::before { background: radial-gradient(circle at top left, rgba(29,158,117,0.15), transparent 60%); }
+  .activity-card.pink::before { background: radial-gradient(circle at top left, rgba(212,83,126,0.15), transparent 60%); }
+  .activity-card.blue::before { background: radial-gradient(circle at top left, rgba(55,138,221,0.15), transparent 60%); }
+  .activity-card.coral::before { background: radial-gradient(circle at top left, rgba(216,90,48,0.15), transparent 60%); }
+  .activity-card:hover::before { opacity: 1; }
+
+  .activity-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .activity-icon.purple { background: rgba(127,119,221,0.2); }
+  .activity-icon.amber { background: rgba(239,159,39,0.2); }
+  .activity-icon.teal { background: rgba(29,158,117,0.2); }
+  .activity-icon.pink { background: rgba(212,83,126,0.2); }
+  .activity-icon.blue { background: rgba(55,138,221,0.2); }
+  .activity-icon.coral { background: rgba(216,90,48,0.2); }
+
+  .activity-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .activity-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .activity-reveal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: transform 0.15s;
+    position: relative;
+    z-index: 1;
+  }
+  .activity-reveal-btn:hover { transform: scale(1.05); }
+
+  .activity-reveal-btn.purple { background: rgba(127,119,221,0.25); color: #AFA9EC; }
+  .activity-reveal-btn.amber { background: rgba(239,159,39,0.25); color: #FAC775; }
+  .activity-reveal-btn.teal { background: rgba(29,158,117,0.25); color: #5DCAA5; }
+  .activity-reveal-btn.pink { background: rgba(212,83,126,0.25); color: #ED93B1; }
+  .activity-reveal-btn.blue { background: rgba(55,138,221,0.25); color: #85B7EB; }
+  .activity-reveal-btn.coral { background: rgba(216,90,48,0.25); color: #F0997B; }
+
+  .reveal-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    border-left: 3px solid;
+  }
+  .reveal-content.purple { border-color: #7F77DD; }
+  .reveal-content.amber { border-color: #EF9F27; }
+  .reveal-content.teal { border-color: #1D9E75; }
+  .reveal-content.pink { border-color: #D4537E; }
+  .reveal-content.blue { border-color: #378ADD; }
+  .reveal-content.coral { border-color: #D85A30; }
+
+  .reveal-content.open { display: block; animation: fadeSlideIn 0.3s ease; }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .vibes-section {
+    padding: 5rem 2rem;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .vibes-inner { max-width: 1100px; margin: 0 auto; }
+
+  .vibes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .vibe-item {
+    background: #0d0d14;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .vibe-item:hover { background: rgba(255,255,255,0.04); }
+
+  .vibe-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .vibe-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .sports-section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .sports-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 2.5rem;
+  }
+
+  .sport-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sport-bar-item:hover { background: rgba(255,255,255,0.06); }
+
+  .sport-emoji { font-size: 24px; width: 36px; text-align: center; }
+
+  .sport-info { flex: 1; }
+  .sport-name { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+
+  .sport-bar-bg {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .sport-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sport-level {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    min-width: 60px;
+    text-align: right;
+  }
+
+  .quote-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, rgba(127,119,221,0.08), rgba(212,83,126,0.06));
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .quote-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .quote-author {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .back-btn-wrap {
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .back-link:hover { color: #fff; }
+
+  .ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    background: rgba(127,119,221,0.08);
+    border-top: 1px solid rgba(127,119,221,0.15);
+    border-bottom: 1px solid rgba(127,119,221,0.15);
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 3rem;
+    animation: ticker 20s linear infinite;
+    width: max-content;
+  }
+
+  .ticker-item {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+
+  .ticker-item span {
+    color: #7F77DD;
+    margin-right: 0.75rem;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .mood-ring {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2.5rem;
+  }
+
+  .mood-tag {
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    border: 1px solid transparent;
+  }
+  .mood-tag:hover { transform: scale(1.08) rotate(-1deg); }
+  .mood-tag.active { transform: scale(1.1); }
+
+  .floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    animation: floatUp 3s ease-out forwards;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(-120px) scale(1.4) rotate(20deg); }
+  }
+</style>
+
+<div class="fun-portfolio" id="funPortfolio">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Unprofessional portfolio showcasing the fun, sporty, creative side beyond work</h2>
+
+  <section class="hero">
+    <div class="floating-blobs">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+      <div class="blob blob4"></div>
+    </div>
+
+    <div class="hero-tag">✦ the other side</div>
+    <h1 class="hero-title">
+      <span class="line1">Beyond the Resume.</span>
+      <span class="line2">This is the Real Me.</span>
+    </h1>
+    <p class="hero-sub">No deadlines. No KPIs. Just vibes, backflips, late nights, and everything in between.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="scrollToSection('activities')">Explore my chaos</button>
+      <button class="btn-secondary" onclick="sendPrompt('Tell me more about the unprofessional portfolio sections I should add')">What to add here? ↗</button>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <span class="ticker-item"><span>★</span> Backflip enjoyer</span>
+      <span class="ticker-item"><span>★</span> Football addict</span>
+      <span class="ticker-item"><span>★</span> Late night coder</span>
+      <span class="ticker-item"><span>★</span> Road trip planner</span>
+      <span class="ticker-item"><span>★</span> Meme connoisseur</span>
+      <span class="ticker-item"><span>★</span> Gym rat</span>
+      <span class="ticker-item"><span>★</span> Chess strategist</span>
+      <span class="ticker-item"><span>★</span> Amateur chef</span>
+      <span class="ticker-item"><span>★</span> Backflip enjoyer</span>
+      <span class="ticker-item"><span>★</span> Football addict</span>
+      <span class="ticker-item"><span>★</span> Late night coder</span>
+      <span class="ticker-item"><span>★</span> Road trip planner</span>
+      <span class="ticker-item"><span>★</span> Meme connoisseur</span>
+      <span class="ticker-item"><span>★</span> Gym rat</span>
+      <span class="ticker-item"><span>★</span> Chess strategist</span>
+      <span class="ticker-item"><span>★</span> Amateur chef</span>
+    </div>
+  </div>
+
+  <section class="section" id="activities">
+    <p class="section-label">✦ side quests</p>
+    <h2 class="section-title">What I Actually Do</h2>
+    <p class="section-sub">Click the buttons below to see the real story behind each one.</p>
+
+    <div class="activities-grid">
+      <div class="activity-card purple">
+        <div class="activity-icon purple">🤸</div>
+        <div class="activity-title">Backflips & Stunts</div>
+        <div class="activity-desc">Not just for show. Trained for real.</div>
+        <button class="activity-reveal-btn purple" onclick="toggleReveal(this, 'reveal1')">Click to see this skill ↓</button>
+        <div class="reveal-content purple" id="reveal1">Spent 6 months training backflips. First attempt: landed on my face. Current status: clean standing backflip, working on gainer. Training 3x/week. Pain is temporary, swag is forever.</div>
+      </div>
+
+      <div class="activity-card amber">
+        <div class="activity-icon amber">⚽</div>
+        <div class="activity-title">Football (Real Football)</div>
+        <div class="activity-desc">Weekend warrior. Occasional genius.</div>
+        <button class="activity-reveal-btn amber" onclick="toggleReveal(this, 'reveal2')">Click to see this skill ↓</button>
+        <div class="reveal-content amber" id="reveal2">Left-footed, CM who thinks he's a CAM. Plays every Sunday at 6am. Has scored one freekick in 3 years. Treats it like the World Cup every single time. No ragrets.</div>
+      </div>
+
+      <div class="activity-card teal">
+        <div class="activity-icon teal">🎮</div>
+        <div class="activity-title">Gaming Side Quests</div>
+        <div class="activity-desc">Strategy over button mashing.</div>
+        <button class="activity-reveal-btn teal" onclick="toggleReveal(this, 'reveal3')">Click to see this skill ↓</button>
+        <div class="reveal-content teal" id="reveal3">Chess.com 1200+ rapid. Clash Royale top 1% in season 4. Currently speed-running Hollow Knight. Will beat you at Warzone and blame lag when I don't.</div>
+      </div>
+
+      <div class="activity-card pink">
+        <div class="activity-icon pink">🌄</div>
+        <div class="activity-title">Road Trips & Treks</div>
+        <div class="activity-desc">Maps, chai, and no plan.</div>
+        <button class="activity-reveal-btn pink" onclick="toggleReveal(this, 'reveal4')">Click to see this skill ↓</button>
+        <div class="reveal-content pink" id="reveal4">Driven Pune to Mahabaleshwar at 4am just for the fog. Trekked Rajmachi solo with broken sandals. Trip rule: no itinerary, no worry. The detour is always the destination.</div>
+      </div>
+
+      <div class="activity-card blue">
+        <div class="activity-icon blue">🎵</div>
+        <div class="activity-title">Music & Late Nights</div>
+        <div class="activity-desc">Playlist curator. Headphones always on.</div>
+        <button class="activity-reveal-btn blue" onclick="toggleReveal(this, 'reveal5')">Click to see this skill ↓</button>
+        <div class="reveal-content blue" id="reveal5">Genre hops between lo-fi, hip-hop, and Bollywood classics at 2am. Has a Spotify playlist for every mood and every hour. Currently obsessed with making the perfect "gym sesh" queue. Judges people by their music taste (a little).</div>
+      </div>
+
+      <div class="activity-card coral">
+        <div class="activity-icon coral">🍳</div>
+        <div class="activity-title">Cooking Experiments</div>
+        <div class="activity-desc">Sometimes fire. Literally sometimes fire.</div>
+        <button class="activity-reveal-btn coral" onclick="toggleReveal(this, 'reveal6')">Click to see this skill ↓</button>
+        <div class="reveal-content coral" id="reveal6">Mastered maggi with 12 ingredients. Once made pasta that slapped harder than any restaurant. The smoke alarm is a 5-star reviewer. Specialty: breakfast at midnight.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vibes-section">
+    <div class="vibes-inner">
+      <p class="section-label" style="text-align:center;">✦ by the numbers</p>
+      <h2 class="section-title" style="text-align:center;">The Unofficial Stats</h2>
+      <div class="vibes-grid">
+        <div class="vibe-item">
+          <div class="vibe-num" style="color:#7F77DD;">12+</div>
+          <div class="vibe-label">road trips taken</div>
+        </div>
+        <div class="vibe-item">
+          <div class="vibe-num" style="color:#EF9F27;">847</div>
+          <div class="vibe-label">football matches played</div>
+        </div>
+        <div class="vibe-item">
+          <div class="vibe-num" style="color:#1D9E75;">3am</div>
+          <div class="vibe-label">peak productivity hour</div>
+        </div>
+        <div class="vibe-item">
+          <div class="vibe-num" style="color:#D4537E;">∞</div>
+          <div class="vibe-label">backflip attempts</div>
+        </div>
+        <div class="vibe-item">
+          <div class="vibe-num" style="color:#378ADD;">99%</div>
+          <div class="vibe-label">gym attendance (claimed)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sports-section">
+    <p class="section-label">✦ the scoreboard</p>
+    <h2 class="section-title">Sports Proficiency</h2>
+    <p class="section-sub">Completely self-assessed. Zero bias.</p>
+
+    <div class="sports-row" id="sportsRow">
+      <div class="sport-bar-item">
+        <div class="sport-emoji">⚽</div>
+        <div class="sport-info">
+          <div class="sport-name">Football</div>
+          <div class="sport-bar-bg"><div class="sport-bar-fill" data-width="88" style="background: linear-gradient(90deg, #378ADD, #7F77DD);"></div></div>
+        </div>
+        <div class="sport-level">Legend</div>
+      </div>
+      <div class="sport-bar-item">
+        <div class="sport-emoji">🤸</div>
+        <div class="sport-info">
+          <div class="sport-name">Gymnastics / Stunts</div>
+          <div class="sport-bar-bg"><div class="sport-bar-fill" data-width="72" style="background: linear-gradient(90deg, #D4537E, #EF9F27);"></div></div>
+        </div>
+        <div class="sport-level">Getting there</div>
+      </div>
+      <div class="sport-bar-item">
+        <div class="sport-emoji">🏋️</div>
+        <div class="sport-info">
+          <div class="sport-name">Gym / Lifting</div>
+          <div class="sport-bar-bg"><div class="sport-bar-fill" data-width="80" style="background: linear-gradient(90deg, #1D9E75, #378ADD);"></div></div>
+        </div>
+        <div class="sport-level">Consistent</div>
+      </div>
+      <div class="sport-bar-item">
+        <div class="sport-emoji">♟️</div>
+        <div class="sport-info">
+          <div class="sport-name">Chess</div>
+          <div class="sport-bar-bg"><div class="sport-bar-fill" data-width="60" style="background: linear-gradient(90deg, #7F77DD, #D4537E);"></div></div>
+        </div>
+        <div class="sport-level">1200 ELO</div>
+      </div>
+      <div class="sport-bar-item">
+        <div class="sport-emoji">🏃</div>
+        <div class="sport-info">
+          <div class="sport-name">Running / Cardio</div>
+          <div class="sport-bar-bg"><div class="sport-bar-fill" data-width="65" style="background: linear-gradient(90deg, #EF9F27, #D85A30);"></div></div>
+        </div>
+        <div class="sport-level">5K no sweat</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem;">
+    <p class="section-label">✦ current mood</p>
+    <h2 class="section-title">Vibe Check</h2>
+    <p class="section-sub">Tap to filter the energy.</p>
+    <div class="mood-ring" id="moodRing">
+      <div class="mood-tag active" style="background:rgba(127,119,221,0.2);color:#AFA9EC;border-color:rgba(127,119,221,0.4);" onclick="moodClick(this, '🌀')">In my element</div>
+      <div class="mood-tag" style="background:rgba(239,159,39,0.15);color:#FAC775;border-color:rgba(239,159,39,0.3);" onclick="moodClick(this, '🔥')">On fire rn</div>
+      <div class="mood-tag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);" onclick="moodClick(this, '✌️')">Chill mode</div>
+      <div class="mood-tag" style="background:rgba(212,83,126,0.15);color:#ED93B1;border-color:rgba(212,83,126,0.3);" onclick="moodClick(this, '🎯')">Locked in</div>
+      <div class="mood-tag" style="background:rgba(55,138,221,0.15);color:#85B7EB;border-color:rgba(55,138,221,0.3);" onclick="moodClick(this, '💤')">Send help</div>
+      <div class="mood-tag" style="background:rgba(216,90,48,0.15);color:#F0997B;border-color:rgba(216,90,48,0.3);" onclick="moodClick(this, '🤸')">Backflip mode</div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="quote-inner">
+      <div class="quote-text">"Work hard enough that your fun feels earned — then go absolutely feral."</div>
+      <div class="quote-author">— me, 2am, post-gym</div>
+    </div>
+  </section>
+
+  <div class="back-btn-wrap">
+    <button class="back-link" onclick="sendPrompt('Take me back to the professional portfolio')">← Back to the boring (professional) side</button>
+  </div>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function toggleReveal(btn, id) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open', !isOpen);
+    btn.textContent = isOpen ? 'Click to see this skill ↓' : 'Hide ↑';
+  }
+
+  function moodClick(el, emoji) {
+    document.querySelectorAll('.mood-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    spawnEmoji(el, emoji);
+  }
+
+  function spawnEmoji(el, emoji) {
+    const rect = el.getBoundingClientRect();
+    const container = document.getElementById('funPortfolio');
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const e = document.createElement('div');
+        e.className = 'floating-emoji';
+        e.textContent = emoji;
+        e.style.left = (rect.left + Math.random() * rect.width) + 'px';
+        e.style.top = rect.top + 'px';
+        e.style.position = 'fixed';
+        e.style.zIndex = '9999';
+        document.body.appendChild(e);
+        setTimeout(() => e.remove(), 3000);
+      }, i * 120);
+    }
+  }
+
+  function animateBars() {
+    document.querySelectorAll('.sport-bar-fill').forEach(bar => {
+      const w = bar.getAttribute('data-width');
+      bar.style.width = w + '%';
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateBars();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const sportsRow = document.getElementById('sportsRow');
+  if (sportsRow) observer.observe(sportsRow);
+</script>
