@@ -825,6 +825,12 @@
     0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
     100% { opacity: 0; transform: translateY(-120px) scale(1.4) rotate(20deg); }
   }
+
+.media-placeholder{display:none !important;}
+.media-slot{display:block !important;position:absolute;inset:0;}
+.multi-strip,.remove-btn,.quest-upload-row{display:none !important;}
+.quest-media video,.quest-media img{width:100%;height:100%;object-fit:cover;}
+
 </style>
 
 <div class="fun-portfolio" id="funPortfolio">
@@ -862,16 +868,16 @@
       <span class="ticker-item"><span>★</span> Late night coder</span>
       <span class="ticker-item"><span>★</span> Road trip planner</span>
       <span class="ticker-item"><span>★</span> Meme connoisseur</span>
-      <span class="ticker-item"><span>★</span> Gym rat</span>
-      <span class="ticker-item"><span>★</span> Chess strategist</span>
+      <span class="ticker-item"><span>★</span> Athletic</span>
+      <span class="ticker-item"><span>★</span> Chess Sometimes</span>
       <span class="ticker-item"><span>★</span> Amateur chef</span>
       <span class="ticker-item"><span>★</span> Backflip enjoyer</span>
       <span class="ticker-item"><span>★</span> Football addict</span>
       <span class="ticker-item"><span>★</span> Late night coder</span>
       <span class="ticker-item"><span>★</span> Road trip planner</span>
       <span class="ticker-item"><span>★</span> Meme connoisseur</span>
-      <span class="ticker-item"><span>★</span> Gym rat</span>
-      <span class="ticker-item"><span>★</span> Chess strategist</span>
+      <span class="ticker-item"><span>★</span> Athletic</span>
+      <span class="ticker-item"><span>★</span> Chess Sometimes</span>
       <span class="ticker-item"><span>★</span> Amateur chef</span>
     </div>
   </div>
@@ -964,7 +970,7 @@
     <div class="quest-media" id="media-3">
       <div class="media-placeholder" id="ph-3" onclick="triggerUpload('file-3')">
         <div class="upload-icon" style="background:rgba(29,158,117,0.2);">🎮</div>
-        <div class="upload-label"><strong>Gaming Side Quests</strong>Drop photo/video or click to upload</div>
+        <div class="upload-label"><strong>Late Night Rides</strong>Drop photo/video or click to upload</div>
         <div class="media-type-toggle">
           <button class="type-btn active" onclick="event.stopPropagation();setMode('3','photo')">Photo</button>
           <button class="type-btn" onclick="event.stopPropagation();setMode('3','video')">Video</button>
@@ -974,21 +980,21 @@
       <img class="media-slot" id="img-3" />
       <video class="media-slot" id="vid-3" controls loop muted playsinline></video>
       <div class="multi-strip" id="multi-3" style="display:none;height:100%;"></div>
-      <div class="media-overlay" id="ov-3"><span class="overlay-tag" style="color:#5DCAA5;">Gaming</span></div>
+      <div class="media-overlay" id="ov-3"><span class="overlay-tag" style="color:#5DCAA5;">Late Night Rides</span></div>
       <button class="remove-btn" id="rm-3" onclick="clearMedia('3')">✕</button>
       <input type="file" id="file-3" style="display:none;" accept="image/*,video/*" onchange="handleFile(event,'3')">
     </div>
     <div class="quest-info">
       <div class="quest-num" style="color:#1D9E75;">03</div>
       <div class="divider-line" style="background:#1D9E75;"></div>
-      <div class="quest-category" style="color:#5DCAA5;">Gaming / Strategy</div>
-      <h3 class="quest-name">Gaming Side Quests</h3>
+      <div class="quest-category" style="color:#5DCAA5;">Adventure / Fun</div>
+      <h3 class="quest-name">Late Night Rides</h3>
       <div class="progress-bar"><div class="progress-fill" data-w="60" style="background:linear-gradient(90deg,#1D9E75,#378ADD);"></div></div>
-      <p class="quest-desc">Chess.com 1200+ rapid. Clash Royale top 1% season 4. Currently speed-running Hollow Knight. Will beat you at Warzone and blame lag when I don't.</p>
+      <p class="quest-desc">Planned for the friend's video shoot of his new bike, and randomly recorded my late night rides. Not my bike though.</p>
       <div class="quest-tags">
-        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">1200 ELO</span>
-        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">Top 1% CR</span>
-        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">Hollow Knight</span>
+        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">1 AM</span>
+        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">Weekend</span>
+        <span class="qtag" style="background:rgba(29,158,117,0.15);color:#5DCAA5;border-color:rgba(29,158,117,0.3);">Royal Enfield</span>
       </div>
       <div class="quest-upload-row">
         <button class="q-upload-btn" onclick="triggerUpload('file-3')">+ Add photo / video</button>
@@ -1002,7 +1008,7 @@
     <div class="quest-media" id="media-4">
       <div class="media-placeholder" id="ph-4" onclick="triggerUpload('file-4')">
         <div class="upload-icon" style="background:rgba(212,83,126,0.2);">🌄</div>
-        <div class="upload-label"><strong>Road Trips & Treks</strong>Drop photo/video or click to upload</div>
+        <div class="upload-label"><strong>Trips & Treks</strong>Drop photo/video or click to upload</div>
         <div class="media-type-toggle">
           <button class="type-btn active" onclick="event.stopPropagation();setMode('4','photo')">Photo</button>
           <button class="type-btn" onclick="event.stopPropagation();setMode('4','video')">Video</button>
@@ -1012,7 +1018,7 @@
       <img class="media-slot" id="img-4" />
       <video class="media-slot" id="vid-4" controls loop muted playsinline></video>
       <div class="multi-strip" id="multi-4" style="display:none;height:100%;"></div>
-      <div class="media-overlay" id="ov-4"><span class="overlay-tag" style="color:#ED93B1;">Road Trips</span></div>
+      <div class="media-overlay" id="ov-4"><span class="overlay-tag" style="color:#ED93B1;">Trips</span></div>
       <button class="remove-btn" id="rm-4" onclick="clearMedia('4')">✕</button>
       <input type="file" id="file-4" style="display:none;" accept="image/*,video/*" onchange="handleFile(event,'4')">
     </div>
@@ -1020,9 +1026,9 @@
       <div class="quest-num" style="color:#D4537E;">04</div>
       <div class="divider-line" style="background:#D4537E;"></div>
       <div class="quest-category" style="color:#ED93B1;">Adventure / Travel</div>
-      <h3 class="quest-name">Road Trips & Treks</h3>
+      <h3 class="quest-name">Trips & Treks</h3>
       <div class="progress-bar"><div class="progress-fill" data-w="78" style="background:linear-gradient(90deg,#D4537E,#7F77DD);"></div></div>
-      <p class="quest-desc">Driven Pune to Mahabaleshwar at 4am just for the fog. Trekked Rajmachi solo with broken sandals. Trip rule: no itinerary, no worry. The detour is always the destination.</p>
+      <p class="quest-desc">Driven Pune to Kokan at 4am just for the fog.  Me and 6 friends and no one told the family. Trip rule: no itinerary, no worry. The detour is always the destination.</p>
       <div class="quest-tags">
         <span class="qtag" style="background:rgba(212,83,126,0.15);color:#ED93B1;border-color:rgba(212,83,126,0.3);">12+ trips</span>
         <span class="qtag" style="background:rgba(212,83,126,0.15);color:#ED93B1;border-color:rgba(212,83,126,0.3);">Rajmachi solo</span>
@@ -1338,7 +1344,36 @@
       }
     });
   });
-  function scrollToSection(id) {
+  
+document.addEventListener('DOMContentLoaded', function(){
+
+const sectionVideos = {
+1:'Media/bckflp.mp4',
+2:'Media/football.mp4',
+3:'Media/night.mp4', 
+4:'Media/travel.mp4',
+5:'Media/music.mp4',
+6:'Media/cooking.mp4' //Left
+};
+
+Object.keys(sectionVideos).forEach(id=>{
+   const img = document.getElementById('img-'+id);
+   const vid = document.getElementById('vid-'+id);
+   if(img) img.style.display='none';
+   if(!vid) return;
+
+   vid.style.display='block';
+   vid.src = sectionVideos[id];
+   vid.muted = true;
+   vid.autoplay = true;
+   vid.loop = true;
+   vid.playsInline = true;
+   vid.load();
+   vid.play().catch(()=>{});
+});
+
+});
+function scrollToSection(id) {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
